@@ -22,6 +22,15 @@ client.on('message', msg => {
  }
 });
  
+// If you put the same input/output phrase you get a spam bot, therefore you have
+// to make it different. You can do this through any way at all, EXCLUDING
+// putting a space after the message, because discord will trim it off.
+client.on("message", (message) => {
+	if (message.content == "glizzy") {
+	  message.channel.send("Glizzy");
+	}
+});
+
 //  hello jazon
 client.on('message', msg => {
  if (msg.content === 'hello jazon') {
@@ -40,15 +49,6 @@ client.on("message", (message) => {
 client.on("message", (message) => {
 	if (message.content == "Should I add Michelle Dominguez to the cult?") {
 	  message.channel.send("yes");
-	}
-});
-
-// If you put the same input/output phrase you get a spam bot, therefore you have
-// to make it different. You can do this through any way at all, EXCLUDING
-// putting a space after the message, because discord will trim it off.
-client.on("message", (message) => {
-	if (message.content == "glizzy") {
-	  message.channel.send("Glizzy");
 	}
 });
 
