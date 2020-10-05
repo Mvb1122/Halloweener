@@ -33,16 +33,17 @@ client.on("message", (message) => {
 
 //  hello jazon
 client.on('message', msg => {
+ if (message.author.bot) return;
  if (msg.content === 'hello jazon') {
  msg.reply('hello jazon');
  }
 });
 
-// This is a different version of the "hello jazon" command. It is just a bit proper-er.
-client.on("message", (message) => {
-	if (message.content == "hello jazon") {
-	  message.channel.send("_hello jazon");
-	}
+client.on('message', msg => {
+ if (message.author.bot) return;
+ if (msg.content === 'potato') {
+ msg.reply('potato')
+ }
 });
 
 // there are a few more dumb ones here.
