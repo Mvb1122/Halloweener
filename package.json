@@ -1,0 +1,32 @@
+{
+  "name": "halloweener",
+  "version": "0.0.1",
+  "description": "A Discord bot!",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "MeowffleCAT#0001",
+  "license": "ISC",
+  "dependencies": {
+    "core-util-is": "^1.0.2",
+    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+    "discord.js": "^12.3.1",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "eslint": "^7.10.0",
+    "eslint-plugin-vue": "^7.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mvb1122/Halloweener.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mvb1122/Halloweener/issues"
+  },
+  "homepage": "https://github.com/Mvb1122/Halloweener#readme"
+}
