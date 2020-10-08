@@ -4,7 +4,7 @@ const config = require('../config.json');
 const Discord = require('discord.js');
 const { Console } = require('winston/lib/winston/transports');
 
-exports.eball = (username, question) => {
+exports.eball = () => {
   const userName = username;
   // userName ? console.log("Hello, " + userName + ".") : console.log("Hello!");
   const userQuestion = question;
