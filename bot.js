@@ -1,13 +1,14 @@
 // this loads the config file which tells it what to connect to.
 const config = require('./config.json');
-// this loads the 8ball.js file which has the 8ball command I made.
+// this loads the 8ball.js file which has the 8ball and CreepyPasta commands I made.
 var eball = require('./Command_Files/8ball');
+var creepypasta = require('./Command_Files/creepypasta');
 // this makes the program a discord bot
 const Discord = require('discord.js');
 // this bit lets me log to the command console.
 const { Console } = require('winston/lib/winston/transports');
 
-// create a new Discord client
+// make the bot know that it's a discord bot.
 const client = new Discord.Client();
 
 // This code runs on startup
@@ -15,7 +16,8 @@ const client = new Discord.Client();
 client.once('ready', () => {
 	console.log('Ready!');
 	channel = client.channels.cache.get('762868747970936882');
-    channel.send('Bot updated.');
+	channel.send('Bot updated.');
+	client.user.setActivity("h!help"); 
 });
 
 // This lil buckaroonie sends Boo when you ask to be spooked.
@@ -213,10 +215,14 @@ client.on('message', msg => {
 		console.log("8ball requested.")
 		var question = msg.content.slice(config.prefix.length + "8ball".length, 0);
 		// the command above cuts it up, below sends it through and replies.
-		msg.channel.send(eball.eball("", question))
+		msg.channel.send(eball.eball())
 	}
 	if (msg.content.startsWith("Anyway")) {
 		msg.channel.send("`Anyway`")
+	}
+	if (msg.content.startsWith(config.prefix + "randomCP")) {
+		console.log("creepypasta requested.")
+		msg.channel.send(creepypasta.cpasta())
 	}
 });
 
