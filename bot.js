@@ -2,7 +2,7 @@
 const config = require('./config.json');
 // this loads the 8ball.js file which has the 8ball and CreepyPasta commands I made.
 var eball = require('./Command_Files/8ball');
-var creepypasta = require('./Command_Files/creepypasta');
+var randomCreepyPastaCommand = require("./Command_Files/RandomCP")
 // this makes the program a discord bot
 const Discord = require('discord.js');
 // this bit lets me log to the command console.
@@ -221,8 +221,10 @@ client.on('message', msg => {
 		msg.channel.send("`Anyway`")
 	}
 	if (msg.content.startsWith(config.prefix + "randomCP")) {
-		console.log("creepypasta requested.")
-		msg.channel.send(creepypasta.cpasta())
+		console.log("RandomCP requested.")
+		var question = msg.content.slice(config.prefix.length + "randomCP".length, 0);
+		// the command above cuts it up, below sends it through and replies.
+		msg.channel.send(randomCreepyPastaCommand.randomCP())
 	}
 });
 
