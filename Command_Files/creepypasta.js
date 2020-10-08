@@ -6,9 +6,9 @@ const { Console } = require('winston/lib/winston/transports');
 var cpl = require('./creepylist.json');
 
 exports.cpasta = () => {
-  const userName = username;
+  // const userName = username;
   // userName ? console.log("Hello, " + userName + ".") : console.log("Hello!");
-  const userQuestion = question;
+  // const userQuestion = question;
   // userName ? console.log("You asked '" + userQuestion + "', right, " + userName + "?") : console.log("You asked '" + userQuestion + "' right?");
   let randomNumber = Math.floor(Math.random() * 2);
   };
