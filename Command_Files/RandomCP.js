@@ -3,7 +3,6 @@
 const config = require('../config.json');
 const Discord = require('discord.js');
 const { Console } = require('winston/lib/winston/transports');
-const cl = require("./creepylist.json")
 
 exports.randomCP = () => {
   // const userName = username;
@@ -14,29 +13,29 @@ exports.randomCP = () => {
   var output = "";
   switch (randomNumber) {
     case 1:
-      output = ""+cl.1;
+      output = "https://www.youtube.com/watch?v=6Tqfd6Z1qL4";
       break;
     case 2:
-      output = ""+cl.2;
+      output = "https://www.youtube.com/watch?v=6Tqfd6Z1qL4";
       break;
     case 3:
-      output = ""+cl.3;
+      output = "3";
       break;
     case 4:
-      output = ""+cl.4;
+      output = "4";
       break;
     case 5:
-      output = ""+cl.5;
+      output = "5";
       break;
     case 6:
-      output = ""+cl.6;
+      output = "6";
       break;
     case 7:
-      output = ""+cl.7;
+      output = "7";
       break;
     case 8:
-      output = ""+cl.8;
+      output = "8";
       break;
   };
-  return eightBall;
+  return output;
 }
