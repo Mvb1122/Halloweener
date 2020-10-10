@@ -241,6 +241,7 @@ client.on('message', async message => {
 		if (message.member.voice.channel) {
 			const connection = await message.member.voice.channel.join();
 			const dispatcher = connection.play('./Command_Files/Music.mp3', { volume: 0.5 });
+			message.channel.send("Sometimes it glitches, so run h!stop if I don't connect.")
 			message.channel.send({embed: {
 				// This is one of those fancy embed things you see all the real bots using.
 				color: 000000,
@@ -249,6 +250,29 @@ client.on('message', async message => {
 				{
 				name: 'https://www.youtube.com/watch?v=-EZ517Ls_FE',
 				value: '~ All music is composed by Derek and Brandon Fiechter ~',
+				},
+				{
+					name: 'https://www.youtube.com/watch?v=tnwwDYfesPc',
+					value: "This is the non-remixed version of this song if you're wondering.",
+				}
+				]
+				}
+			}
+			)
+		}
+	}
+	if (message.content === config.prefix + "Kitchen Without Gun") {
+		if (message.member.voice.channel) {
+			const connection = await message.member.voice.channel.join();
+			const dispatcher = connection.play('./Command_Files/m2.mp3', { volume: 0.25 });
+			message.channel.send({embed: {
+				// This is one of those fancy embed things you see all the real bots using.
+				color: 000000,
+				title: ("Whoa kitchen with no gun"),
+				fields: [
+				{
+				name: 'https://www.youtube.com/watch?v=O31csGCdCDI',
+				value: 'made by ins.step',
 				}
 				]
 				}
