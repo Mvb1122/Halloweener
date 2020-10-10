@@ -1,5 +1,5 @@
 exports.rockPaperScissors = (userInput) => {
-  console.log(userInput)
+  console.log(`Somebody's playing RPS. They chose ${userInput}.`)
   function getUserChoice(userInput) {
     userInput = userInput.toLowerCase();
     if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput === 'bomb') {
