@@ -29,15 +29,6 @@ client.once('ready', () => {
 	client.user.setActivity("h!help"); 
 });
 
-// This lil buckaroonie sends Boo when you ask to be spooked.
-client.on('message', message => {
- if (message.content === 'h!spook') {
- // This is basically looking at every message sent in the server and looking for "h!spook"
- msg.reply('Boo');
- // then it's just sending back "Boo"
- }
-});
-
 // Since this one's a bit more complicated, I'll tell you what it does. (Rip off the dad bot)
 client.on("message", (message) => {
 	if (!message.content.startsWith("I'm") || message.author.bot) return;
@@ -47,64 +38,12 @@ client.on("message", (message) => {
  //                                    ^ how wide the phrase to look for is
 	const command = args.shift().toLowerCase();
 	message.channel.send("Hello " + message.content.slice(4) + " I'm dad.")
+
  //                       ^ reply to message with whole message, append "I'm dad"
 });
 
 // ---------------------------------------------------- Commands from here on will have the prefix and other stuff soft-coded in ---------------------------------
-// What I mean by this is that it will use the config.json file in the thing for the stuff.  ALSO, I do need to work on the status commands.
-
-// h!status-offline
-client.on("message", (message) => {
-	if (message.content == config.prefix + "status-offline") {
- // All this does is make the bot look nice and dead.
- // Bots can't go invis, they only have online, streaming, dnd and idle.
- // (Or off)
-		console.log("Change Status to Offline Logged.")
-		client.user.setActivity("h!help")
-		msg.channel.send("Status Changed.")
-	}
-});
-
-// h!status-dnd
-client.on("message", (message) => {
-	if (message.content == config.prefix + "status-dnd") {
- // All this does is make the bot look nice and dead.
-		console.log("Change Status to Do-Not-Disturb Logged.")
-		client.user.setActivity("h!help", {
-			type: "dnd",
-			url: config.twitchurl
-		  });
-		msg.channel.send("Status Changed.")
-	}
-});
-
-client.on("message", (message) => {
-	if (message.content == config.prefix + "status-online") {
- // All this does is make the bot look nice and dead.
-		console.log("Change Status to norm Logged.")
-		client.user.setActivity("h!help", {
-			type: "dnd",
-			url: config.twitchurl
-		  });
-		msg.channel.send("Status Changed.")
-	}
-});
-
-// Random Nhentai chooser. h!randomN
-client.on("message", (message) => {
-	var x = Math.floor(Math.random()*(config.Nmax-config.Nmin+1)+config.Nmin);
-//                                     ^ anytime you^ see config.* you can check config.json for the thing.
-	if (message.content == config.prefix + "randomN") {
-		msg.channel.send("https://nhentai.net/g/" + x );
-		console.log("Somebody's horney. They're looking at "+ x + ", I think.")
-	}
-});
-
-client.on("message", (message) => {
-	if (message.content == "!knock") {
-	  message.channel.send("<@!462643693980221441> I'm at your door, let me in or you die.");
-	} //                          ^ This is greg's id, please don't annoy him.
-});
+// What I mean by this is that it will use the config.json file in the thing for the stuff.
 
 client.on('message', msg => {    
 	if (msg.content === config.prefix + "help") {      
@@ -121,12 +60,36 @@ client.on('message', msg => {
 	// This is known as chaining your commands to make it more efficient and faster to start.
 	// the bot takes roughly 11 seconds to start, so I have to make preformance 
 	// optimizations.
-	} 
+	}
+	if (msg.content == config.prefix + "status-online") {
+		// All this does is make the bot look nice and dead.
+	   console.log("Change Status to norm Logged.")
+	   client.user.setActivity("h!help", {
+		   type: "dnd",
+		   url: config.twitchurl
+		 });
+	   msg.channel.send("Status Changed.")
+	}
+	if (msg.content == config.prefix + "status-dnd") {
+		// All this does is make the bot look nice and dead.
+	   console.log("Change Status to Do-Not-Disturb Logged.")
+	   client.user.setActivity("h!help", {
+		   type: "dnd",
+		   url: config.twitchurl
+		 });
+	   msg.channel.send("Status Changed.")
+   	}    
 	if (msg.content.startsWith(config.prefix + "8ball")) {
 		console.log("8ball requested.")
 		var question = msg.content.slice(config.prefix.length + "8ball".length, 0);
 		// the command above cuts it up, below sends it through and replies.
 		msg.channel.send(eball.eball())
+	}
+	// Random Nhentai chooser. h!randomN
+	if (msg.content == config.prefix + "randomN") {
+		var x = Math.floor(Math.random()*(config.Nmax-config.Nmin+1)+config.Nmin);
+		msg.channel.send("https://nhentai.net/g/" + x );
+		console.log("Somebody's horney. They're looking at "+ x + ", I think.")
 	}
 	if (msg.content.startsWith(config.prefix + "randomCP")) {
 		console.log("RandomCP requested.")
@@ -137,8 +100,27 @@ client.on('message', msg => {
 	if (msg.content.startsWith(config.prefix + "rps")) {
 		msg.channel.send(rockPaperScissors.rockPaperScissors(msg.content.slice(6)))
 	}
+	// This lil buckaroonie sends Boo when you ask to be spooked.
+	if (msg.content === 'h!spook') {
+		// This is basically looking at every message sent in the server and looking for "h!spook"
+		msg.reply('Boo');
+		// then it's just sending back "Boo"
+	}
+	if (msg.content == "!knock") {
+		msg.channel.send("<@!462643693980221441> I'm at your door, let me in or you die.");
+	} //                          ^ This is greg's id, please don't annoy him.
+	// h!status-offline
+	if (msg.content == config.prefix + "status-offline") {
+		// All this does is make the bot look nice and dead.
+		// Bots can't go invis, they only have online, streaming, dnd and idle.
+		// (Or off)
+			   console.log("Change Status to Offline Logged.")
+			   client.user.setActivity("h!help")
+			   msg.channel.send("Status Changed.")
+	}
 });
 
+// This is the music stuff.
 client.on('message', async message => {
 	// Join the same voice channel of the author of the message
 	if (message.content === config.prefix + "spm") {
