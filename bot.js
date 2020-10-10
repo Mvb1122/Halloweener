@@ -3,6 +3,7 @@ const config = require('./config.json');
 // this loads the 8ball.js file which has the 8ball and CreepyPasta commands I made.
 var eball = require('./Command_Files/8ball');
 var randomCreepyPastaCommand = require("./Command_Files/RandomCP")
+var rockPaperScissors = require("./Command_Files/rockPaperScissors")
 // this makes the program a discord bot
 const Discord = require('discord.js');
 // this bit lets me log to the command console.
@@ -39,14 +40,14 @@ client.on('message', message => {
 // This is a different version of the "hello jazon" command. It is just a bit proper-er.
 client.on("message", (message) => {
 	if (message.content == "hello jazon") {
-	  msgchannel.send("_hello jazon");
+	  msg.channel.send("_hello jazon");
 	}
 });
 
 // there are a few more dumb ones here.
 client.on("message", (message) => {
 	if (message.content == "Should I add Michelle Dominguez to the cult?") {
-	  msgchannel.send("yes");
+	  msg.channel.send("yes");
 	}
 });
 
@@ -55,14 +56,14 @@ client.on("message", (message) => {
 // putting a space after the message, because discord will trim it off.
 client.on("message", (message) => {
 	if (message.content == "glizzy") {
-	  msgchannel.send("Glizzy");
+	  msg.channel.send("Glizzy");
 	}
 });
 
 // last one.
 client.on("message", (message) => {
 	if (message.content == "Hello") {
-	  msgchannel.send("Gamers");
+	  msg.channel.send("Gamers");
 	}
 });
 
@@ -85,13 +86,13 @@ client.on("message", (message) => {
 /*
 client.on("message", (message) => {
 	if (message.content == "I'm a cool and good programmer") {
-	  msgchannel.send("no");
+	  msg.channel.send("no");
 	}
 });
 
 client.on("message", (message) => {
 	if (message.content == "):") {
-	  msgchannel.send("suck it");
+	  msg.channel.send("suck it");
 	}
 });
 */
@@ -103,7 +104,7 @@ client.on("message", (message) => {
 			type: "STREAMING",
 			url: "https://twitch.tv/DylamLIVE"
 		  });
-		msgchannel.send("Status Changed.")
+		msg.channel.send("Status Changed.")
 	}
 });
 
@@ -115,7 +116,7 @@ client.on("message", (message) => {
 			type: "STREAMING",
 			url: config.twitchurl
 		  });
-		msgchannel.send("Status Changed.")
+		msg.channel.send("Status Changed.")
 	}
 });
 
@@ -130,7 +131,7 @@ client.on("message", (message) => {
  // (Or off)
 		console.log("Change Status to Offline Logged.")
 		client.user.setActivity("h!help")
-		msgchannel.send("Status Changed.")
+		msg.channel.send("Status Changed.")
 	}
 });
 
@@ -143,7 +144,7 @@ client.on("message", (message) => {
 			type: "dnd",
 			url: config.twitchurl
 		  });
-		msgchannel.send("Status Changed.")
+		msg.channel.send("Status Changed.")
 	}
 });
 
@@ -155,7 +156,7 @@ client.on("message", (message) => {
 			type: "dnd",
 			url: config.twitchurl
 		  });
-		msgchannel.send("Status Changed.")
+		msg.channel.send("Status Changed.")
 	}
 });
 
@@ -164,14 +165,14 @@ client.on("message", (message) => {
 	var x = Math.floor(Math.random()*(config.Nmax-config.Nmin+1)+config.Nmin);
 //                                     ^ anytime you^ see config.* you can check config.json for the thing.
 	if (message.content == config.prefix + "randomN") {
-		msgchannel.send("https://nhentai.net/g/" + x );
+		msg.channel.send("https://nhentai.net/g/" + x );
 		console.log("Somebody's horney. They're looking at "+ x + ", I think.")
 	}
 });
 
 client.on("message", (message) => {
 	if (message.content == "Can i kick ishaan") {
-	  msgchannel.send("Go ahead.");
+	  msg.channel.send("Go ahead.");
 	}
 });
 
@@ -183,7 +184,7 @@ client.on("message", (message) => {
 });
 client.on("message", (message) => {
 	if (message.content == "!knock") {
-	  msgchannel.send("<@!462643693980221441> I'm at your door, let me in or you die.");
+	  message.channel.send("<@!462643693980221441> I'm at your door, let me in or you die.");
 	} //                          ^ This is greg's id, please don't annoy him.
 });
 /*
@@ -223,10 +224,14 @@ client.on('message', msg => {
 	}
 	if (msg.content.startsWith(config.prefix + "randomCP")) {
 		console.log("RandomCP requested.")
-		var question = msg.content.slice(config.prefix.length + "randomCP".length, 0);
 		// the command above cuts it up, below sends it through and replies.
 		msg.channel.send(randomCreepyPastaCommand.randomCP())
 	}
+	
+	if (msg.content.startsWith(config.prefix + "rps")) {
+		msg.channel.send(rockPaperScissors.rockPaperScissors(msg.content.slice(6)))
+	}
+	
 });
 
 // this wee bit logs the bot in
