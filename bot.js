@@ -6,6 +6,8 @@ var randomCreepyPastaCommand = require("./Command_Files/RandomCP")
 var rockPaperScissors = require("./Command_Files/rockPaperScissors")
 // this makes the program a discord bot
 const Discord = require('discord.js');
+const fs = require('fs')
+const { OpusEncoder } = require('@discordjs/opus');
 // this bit lets me log to the command console.
 const { Console } = require('winston/lib/winston/transports');
 
@@ -204,8 +206,8 @@ client.on('message', msg => {
 			color: 000000,
 			title: ("Commands:"),
 			fields: [
-			  { name: "Input", value: "randomN\nDad bot rip-off\n8ball\nrps", inline: true},
-			  { name: "Result", value: "Sends a random Nhentai\nread the title\nreads what you sent, predicts what will happen.\nPlay Rock Paper Scissors. send h!rps and then 'rock,' 'paper,' or 'scissors' to play.", inline: true}
+			  { name: "Input", value: "randomN\nDad bot rip-off\n8ball\nrps\n\nspm", inline: true},
+			  { name: "Result", value: "Sends a random Nhentai\nread the title\nreads what you sent, predicts what will happen.\nPlay Rock Paper Scissors. send " + config.prefix + "rps and then 'rock,' 'paper,' or 'scissors' to play.\nplays spooky music in your voice channel.", inline: true}
 			]}			
 		})
 		msg.channel.send("Check your dms.")
@@ -227,12 +229,24 @@ client.on('message', msg => {
 		// the command above cuts it up, below sends it through and replies.
 		msg.channel.send(randomCreepyPastaCommand.randomCP())
 	}
-	
+	// Rock Paper Scissors Command.
 	if (msg.content.startsWith(config.prefix + "rps")) {
 		msg.channel.send(rockPaperScissors.rockPaperScissors(msg.content.slice(6)))
 	}
-	
 });
 
+client.on('message', async message => {
+	// Join the same voice channel of the author of the message
+	if (message.content === config.prefix + "spm") {
+		if (message.member.voice.channel) {
+			const connection = await message.member.voice.channel.join();
+			const dispatcher = connection.play('./Command_Files/Music.mp3', { volume: 0.5 });
+		}
+	}
+	if (message.content === config.prefix + "stop") {
+		dispatcher.destroy();
+		connection.disconnect();
+	}
+});
 // this wee bit logs the bot in
 client.login(config.token);
