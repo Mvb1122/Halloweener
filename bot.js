@@ -251,10 +251,6 @@ client.on('message', async message => {
 				name: 'https://www.youtube.com/watch?v=-EZ517Ls_FE',
 				value: '~ All music is composed by Derek and Brandon Fiechter ~',
 				},
-				{
-					name: 'https://www.youtube.com/watch?v=tnwwDYfesPc',
-					value: "This is the non-remixed version of this song if you're wondering.",
-				}
 				]
 				}
 			}
@@ -273,6 +269,10 @@ client.on('message', async message => {
 				{
 				name: 'https://www.youtube.com/watch?v=O31csGCdCDI',
 				value: 'made by ins.step',
+				},
+				{
+					name: 'https://www.youtube.com/watch?v=tnwwDYfesPc',
+					value: "This is the non-remixed version of this song if you're wondering.",
 				}
 				]
 				}
