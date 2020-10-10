@@ -23,7 +23,7 @@ client.once('ready', () => {
 	counter += 1;
 	fs.writeFile('counter.json', counter, (err) => {})
     console.log("Counter Incremented.");
-	channel = client.channels.cache.get('762868747970936882');
+	channel = client.channels.cache.get(config.updChannel);
 	channel.send(`Bot updated. This has happened ${counter} times since I started tracking.`);
 	client.user.setActivity("h!help"); 
 });

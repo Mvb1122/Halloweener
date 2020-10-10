@@ -3,5 +3,8 @@
     "token": "HAH YOU WERE EXPECTING A TOKEN, BUT IT WAS ME, DIO",
     "twitchurl": "https://twitch.tv/DylamLIVE",
     "Nmin": "000001",
-    "Nmax": "999999"
+    "Nmax": "999999",
+    "CPmin": "1",
+    "CPmax": "2",
+    "updChannel": "EVEN SPEEDWAGON IS AFRAID!"
 }
