@@ -20,6 +20,7 @@ const client = new Discord.Client();
 // (this will only trigger one time after logging in)
 client.once('ready', () => {
 	console.log('Ready!');
+	// Lines 24-28 send the command for the bot being updated.
 	counter += 1;
 	fs.writeFile('counter.json', counter, (err) => {})
     console.log("Counter Incremented.");
