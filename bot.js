@@ -1,4 +1,4 @@
-// this loads the config file which tells it what to connect to.
+// this loads the config file which tells it what the variables are.
 const config = require('./config.json');
 // this loads the 8ball.js file which has the 8ball and CreepyPasta commands I made.
 var eball = require('./Command_Files/8ball');
@@ -8,8 +8,10 @@ var rockPaperScissors = require("./Command_Files/rockPaperScissors")
 const Discord = require('discord.js');
 const fs = require('fs')
 const { OpusEncoder } = require('@discordjs/opus');
+let counter = require('./counter.json');
 // this bit lets me log to the command console.
 const { Console } = require('winston/lib/winston/transports');
+const { count } = require('console');
 
 // make the bot know that it's a discord bot.
 const client = new Discord.Client();
@@ -18,8 +20,11 @@ const client = new Discord.Client();
 // (this will only trigger one time after logging in)
 client.once('ready', () => {
 	console.log('Ready!');
+	counter += 1;
+	fs.writeFile('counter.json', counter, (err) => {})
+    console.log("Counter Incremented.");
 	channel = client.channels.cache.get('762868747970936882');
-	channel.send('Bot updated.');
+	channel.send(`Bot updated. This has happened ${counter} times since I started tracking.`);
 	client.user.setActivity("h!help"); 
 });
 
