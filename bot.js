@@ -31,44 +31,6 @@ client.on('message', message => {
  // then it's just sending back "Boo"
  }
 });
- 
-//  hello jazon
-client.on('message', message => {
- if (message.content === 'hello jazon') {
- msg.reply('Hello Jazon');
- }
-});
-
-// This is a different version of the "hello jazon" command. It is just a bit proper-er.
-client.on("message", (message) => {
-	if (message.content == "hello jazon") {
-	  msg.channel.send("_hello jazon");
-	}
-});
-
-// there are a few more dumb ones here.
-client.on("message", (message) => {
-	if (message.content == "Should I add Michelle Dominguez to the cult?") {
-	  msg.channel.send("yes");
-	}
-});
-
-// If you put the same input/output phrase you get a spam bot, therefore you have
-// to make it different. You can do this through any way at all, EXCLUDING
-// putting a space after the message, because discord will trim it off.
-client.on("message", (message) => {
-	if (message.content == "glizzy") {
-	  msg.channel.send("Glizzy");
-	}
-});
-
-// last one.
-client.on("message", (message) => {
-	if (message.content == "Hello") {
-	  msg.channel.send("Gamers");
-	}
-});
-
 
 // Since this one's a bit more complicated, I'll tell you what it does. (Rip off the dad bot)
 client.on("message", (message) => {
@@ -80,46 +42,6 @@ client.on("message", (message) => {
 	const command = args.shift().toLowerCase();
 	message.channel.send("Hello " + message.content.slice(4) + " I'm dad.")
  //                       ^ reply to message with whole message, append "I'm dad"
-});
-
-
-// This is for that image I sent in the discord that one time.
-// https://media.discordapp.net/attachments/703116362763075588/762722150590185522/unknown.png   btw "/*" is the start of a multiline comment. "*/"" is the end.
-/*
-client.on("message", (message) => {
-	if (message.content == "I'm a cool and good programmer") {
-	  msg.channel.send("no");
-	}
-});
-
-client.on("message", (message) => {
-	if (message.content == "):") {
-	  msg.channel.send("suck it");
-	}
-});
-*/
-client.on("message", (message) => {
-	if (message.content == "h!status-streaming") {
- // All this does is make the bot look nice and active.
-		console.log("Change Status to Online Logged.")
-		client.user.setActivity("h!help LIVE ON TWITCH! ! ! ", {
-			type: "STREAMING",
-			url: "https://twitch.tv/DylamLIVE"
-		  });
-		msg.channel.send("Status Changed.")
-	}
-});
-
-client.on("message", (message) => {
-	if (message.content == "h!status-streaming2") {
- // All this does is make the bot look nice and active.
-		console.log("Change Status to Online Logged.")
-		client.user.setActivity("I'm a spooky bot.", {
-			type: "STREAMING",
-			url: config.twitchurl
-		  });
-		msg.channel.send("Status Changed.")
-	}
 });
 
 // ---------------------------------------------------- Commands from here on will have the prefix and other stuff soft-coded in ---------------------------------
@@ -173,32 +95,11 @@ client.on("message", (message) => {
 });
 
 client.on("message", (message) => {
-	if (message.content == "Can i kick ishaan") {
-	  msg.channel.send("Go ahead.");
-	}
-});
-
-// another way to avoid spam is to make it a code line in discord with these things -> `
-client.on("message", (message) => {
-	if (message.content == "anyway") {
-	  message.channel.send("`anyway`");
-	}
-});
-client.on("message", (message) => {
 	if (message.content == "!knock") {
 	  message.channel.send("<@!462643693980221441> I'm at your door, let me in or you die.");
 	} //                          ^ This is greg's id, please don't annoy him.
 });
-/*
-// send DMs from bot test. Going to rework this into a help command.
-client.on('message', msg => {    
-	if (message.content === config.prefix + "dmtest") {      
-	  msg.channel.type === (`"dm"`) + msg.author.send(`wow look at that it worked.`);
-	  console.log("DM sent.")
-	  // swapping to these lil things ` <- because they let me use " in my msg.
-	}
-});
-*/
+
 client.on('message', msg => {    
 	if (msg.content === config.prefix + "help") {      
 		msg.channel.type === (`"dm"`) + msg.author.send({embed: {
@@ -220,9 +121,6 @@ client.on('message', msg => {
 		var question = msg.content.slice(config.prefix.length + "8ball".length, 0);
 		// the command above cuts it up, below sends it through and replies.
 		msg.channel.send(eball.eball())
-	}
-	if (msg.content.startsWith("Anyway")) {
-		msg.channel.send("`Anyway`")
 	}
 	if (msg.content.startsWith(config.prefix + "randomCP")) {
 		console.log("RandomCP requested.")
