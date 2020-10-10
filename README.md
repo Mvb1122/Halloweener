@@ -14,6 +14,7 @@ Halloween bot 2020
 - 8ball - Send it a question following the h!8ball and it'll give you an answer from an eight-ball.
 - rps - Plays Rock-Paper-Scissors. send h!rps then Rock, Paper or Scissors, then send to play.
 - spm - Joins your Voice Channel and plays spooky music.
+  - Uses: https://www.youtube.com/watch?v=-EZ517Ls_FE
 - stop - Leaves your VC.
 
 # Plans
