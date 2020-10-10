@@ -12,6 +12,7 @@ Halloween bot 2020
 - Dad bot ripoff (prefix: I'm)
   - Have you heard of the Dad bot? I made it in half an hour. (I'm not too good at coding. . .)
 - 8ball - send it a question following the h!8ball and it'll give you an answer from an eight-ball.
+- rps - Plays Rock-Paper-Scissors. send h!rps then Rock, Paper or Scissors, then send to play. 
 
 # Plans
 - spookymusic - will join users vc and play only spooky music.
