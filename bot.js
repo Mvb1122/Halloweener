@@ -207,7 +207,7 @@ client.on('message', msg => {
 			title: ("Commands:"),
 			fields: [
 			  { name: "Input", value: "randomN\nDad bot rip-off\n8ball\nrps\n\nspm", inline: true},
-			  { name: "Result", value: "Sends a random Nhentai\nread the title\nreads what you sent, predicts what will happen.\nPlay Rock Paper Scissors. send " + config.prefix + "rps and then 'rock,' 'paper,' or 'scissors' to play.\nplays spooky music in your voice channel.", inline: true}
+			  { name: "Result", value: "Sends a random Nhentai\nread the title\nreads what you sent, predicts what will happen.\nPlay Rock Paper Scissors. send " + config.prefix + "rps and then 'rock,' 'paper,' or 'scissors' to play.\nplays spooky music in your voice channel. Use " + config.prefix + "stop to stop it.", inline: true}
 			]}			
 		})
 		msg.channel.send("Check your dms.")
@@ -241,12 +241,26 @@ client.on('message', async message => {
 		if (message.member.voice.channel) {
 			const connection = await message.member.voice.channel.join();
 			const dispatcher = connection.play('./Command_Files/Music.mp3', { volume: 0.5 });
+			message.channel.send({embed: {
+				// This is one of those fancy embed things you see all the real bots using.
+				color: 000000,
+				title: ("Now Playing some Spooky Music"),
+				fields: [
+				{
+				name: 'https://www.youtube.com/watch?v=-EZ517Ls_FE',
+				value: '~ All music is composed by Derek and Brandon Fiechter ~',
+				}
+				]
+				}
+			}
+			)
 		}
 	}
 	if (message.content === config.prefix + "stop") {
-		dispatcher.destroy();
+		const connection = await message.member.voice.channel.join();
 		connection.disconnect();
 	}
-});
+}
+)
 // this wee bit logs the bot in
 client.login(config.token);
