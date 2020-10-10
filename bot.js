@@ -204,8 +204,8 @@ client.on('message', msg => {
 			color: 000000,
 			title: ("Commands:"),
 			fields: [
-			  { name: "Input", value: "randomN\nDad bot rip-off\n8ball", inline: true},
-			  { name: "Result", value: "Sends a random Nhentai\nread the title\nreads what you sent, predicts what will happen.", inline: true}
+			  { name: "Input", value: "randomN\nDad bot rip-off\n8ball\nrps", inline: true},
+			  { name: "Result", value: "Sends a random Nhentai\nread the title\nreads what you sent, predicts what will happen.\nPlay Rock Paper Scissors. send h!rps and then 'rock,' 'paper,' or 'scissors' to play.", inline: true}
 			]}			
 		})
 		msg.channel.send("Check your dms.")
