@@ -1,9 +1,10 @@
 // this loads the config file which tells it what the variables are.
 const config = require('./config.json');
-// this loads the 8ball.js file which has the 8ball and CreepyPasta commands I made.
+// this loads the 8ball.js file which has the 8ball and CreepyPasta commands I made + whatever else idk.
 var eball = require('./Command_Files/8ball');
-var randomCreepyPastaCommand = require("./Command_Files/RandomCP")
-var rockPaperScissors = require("./Command_Files/rockPaperScissors")
+var randomCreepyPastaCommand = require("./Command_Files/RandomCP");
+var rockPaperScissors = require("./Command_Files/rockPaperScissors");
+var crusaderjs = require("./Command_Files/crusader")
 // this makes the program a discord bot
 const Discord = require('discord.js');
 const fs = require('fs')
@@ -169,6 +170,30 @@ client.on('message', async message => {
 	if (message.content === config.prefix + "stop") {
 		const connection = await message.member.voice.channel.join();
 		connection.disconnect();
+	}
+	if (message.content === config.prefix + "Monster Mash") {
+		if (message.member.voice.channel) {
+			const connection = await message.member.voice.channel.join();
+			const dispatcher = connection.play('./Command_Files/Monster Mash.mp3', { volume: 0.5 });
+			message.channel.send("Sometimes it glitches, so run h!stop if I don't connect.")
+			message.channel.send({embed: {
+				// This is one of those fancy embed things you see all the real bots using.
+				color: 000000,
+				title: ("Now Playing some **very** Spooky Music"),
+				fields: [
+				{
+				name: 'https://www.youtube.com/watch?v=bRLML36HnzU',
+				value: "It's the freaking monster mash what do you expect, you loser.",
+				},
+				]
+				}
+			}
+			)
+		}
+	}
+	if (message.content === config.prefix + "crusade") {
+		let randomNumber = Math.floor(Math.random() * 590)
+		message.channel.send("It is time for the crusade, my brother. We must go. " + await crusaderjs.crusader(), { files: ["./Command_Files/crusadermemes/" + randomNumber + ".png"] });
 	}
 }
 )
