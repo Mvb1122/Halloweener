@@ -5,6 +5,7 @@ var eball = require('./Command_Files/8ball');
 var randomCreepyPastaCommand = require("./Command_Files/RandomCP");
 var rockPaperScissors = require("./Command_Files/rockPaperScissors");
 var crusaderjs = require("./Command_Files/crusader")
+var glizzy = require("./Jazon_Files/Glizzy")
 // this makes the program a discord bot
 const Discord = require('discord.js');
 const fs = require('fs')
@@ -115,9 +116,13 @@ client.on('message', msg => {
 		// All this does is make the bot look nice and dead.
 		// Bots can't go invis, they only have online, streaming, dnd and idle.
 		// (Or off)
-			   console.log("Change Status to Offline Logged.")
-			   client.user.setActivity("h!help")
-			   msg.channel.send("Status Changed.")
+			console.log("Change Status to Offline Logged.")
+			client.user.setActivity("h!help")
+			msg.channel.send("Status Changed.")
+	}
+	if (msg.content.startsWith(config.prefix + "glizzy")) {
+		msg.channel.send(glizzy.gladiator(msg.content.slice(9)));
+		console.log('glizzy')
 	}
 });
 
