@@ -25,4 +25,8 @@ exports.gladiator = (glizzy) => {
         }
     }
     return output
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8aaf88da312d79607bded3848513868d8b6670a5
