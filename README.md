@@ -18,4 +18,4 @@ Halloween bot 2020
 - stop - Leaves your VC.
 
 # Plans
-- NONE! ! ! Add your own here.
+- NONE! ! ! Add your own ideas here.
