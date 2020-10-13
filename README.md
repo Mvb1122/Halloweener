@@ -17,4 +17,15 @@ Halloween bot 2020 (And maybe later on, idk)
 - stop - Leaves your VC.
 
 # Plans
-- NONE! ! ! Add your own ideas here.
+- Jojo stand related commands. It would have to randomly grant a stand, then note it in a file and refer to that when the user asks to use it.
+  - Preferablly, would interact with the channel. -- Time stop lets only the user send messages (or people with GER being able to do whatever the heck they want.)
+ - Comment your own ideas here:
+  
+   - The World stops time for 9 seconds, letting only the user send messages in the channel.
+   - TWOH lets them erase 1 message.
+   - SP can do the same as TW, but can freeze time for 10 seconds.
+   - GER can speak during timestops and erase 5 messages from the initial command.
+   - King Crimson can erase 7 messages, and the people who are in the channel have to chat for 1 second as if it didn't happen, then they can react.
+   - Silver Chariot can delete any one message from minuet when the command was sent.
+   - GE turns slow mode on for one person.
+   - Sticky Fingers pins the next message the user sends.
