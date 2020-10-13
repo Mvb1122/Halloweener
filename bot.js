@@ -120,9 +120,14 @@ client.on('message', msg => {
 			client.user.setActivity("h!help")
 			msg.channel.send("Status Changed.")
 	}
+	// Now begins the Jazon Commands.
 	if (msg.content.startsWith(config.prefix + "glizzy")) {
 		msg.channel.send(glizzy.gladiator(msg.content.slice(9)));
 		console.log('glizzy')
+	}
+	if (msg.content.startsWith(config.prefix + 'cockrater')) {
+		const crkrtr = require("./Jazon_Files/3switch");
+		msg.channel.send(crkrtr.cockrater(msg.content.slice(config.prefix.length + 'cockrater'.length + 1)));
 	}
 });
 
