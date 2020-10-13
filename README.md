@@ -1,6 +1,7 @@
 # Halloweener
 Halloween bot 2020 (And maybe later on, idk)
 
+Also don't edit the code unless I told you to thanks -Mvb1122
 # Commands
 (all use prefix defined in config.json, unless defined against)
 - randomN - Sends a random Nhentai.
