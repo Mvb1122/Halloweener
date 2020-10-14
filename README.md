@@ -28,6 +28,6 @@ Also don't edit the code unless I told you to thanks -Mvb1122
    - SP can do the same as TW, but can freeze time for 10 seconds.
    - GER can speak during timestops and erase 5 messages from the initial command (Would delete the user's message and resend it as the bot's).
    - King Crimson can erase 7 messages, and the people who are in the channel have to chat for 1 second as if it didn't happen, then they can react.
-   - Silver Chariot can delete any one message from minuet when the command was sent. (idk what it'd do replace this if you want.)
+   - Silver Chariot can delete any one message from the minute when the command was sent. (idk what it'd do replace this if you want.)
    - GE turns slow mode on for the channel for 5 or so seconds.)
    - Sticky Fingers pins the next message the user sends.
