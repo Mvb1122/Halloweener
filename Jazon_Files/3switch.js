@@ -8,8 +8,6 @@ exports.cockrater = (input) => {
     let cockLength = input[0]
     let cockGirth = input[1]
     let cockHair = input[2]
-    console.log(`1 ${input[1]} 2 ${input[2]} 3 ${input[3]}`);
-    console.log(input)
   switch(cockLength) {
    case 'short': {
    lengthOut = 'Sorry man, that cock is SUPER short. Late bloomer huh?'
