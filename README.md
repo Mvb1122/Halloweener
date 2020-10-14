@@ -20,6 +20,7 @@ Also don't edit the code unless I told you to thanks -Mvb1122
 # Plans
 - Jojo stand related commands. It would have to randomly grant a stand, then note it in a file and refer to that when the user asks to use it.
   - Preferablly, would interact with the channel. -- Time stop lets only the user send messages (or people with GER being able to do whatever the heck they want.)
+  - Needless to say, the server owner'd have to enable it.
  - Comment your own ideas here:
   
    - The World stops time for 9 seconds, letting only the user send messages in the channel.
