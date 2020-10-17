@@ -100,7 +100,7 @@ client.on('message', msg => {
 	}
 	// Rock Paper Scissors Command.
 	if (msg.content.startsWith(config.prefix + "rps")) {
-		msg.channel.send(rockPaperScissors.rockPaperScissors(msg.content.slice(6)))
+		msg.channel.send(rockPaperScissors.rockPaperScissors(msg.content.slice(6)));
 	}
 	// This lil buckaroonie sends Boo when you ask to be spooked.
 	if (msg.content === 'h!spook') {
@@ -128,6 +128,10 @@ client.on('message', msg => {
 	if (msg.content.startsWith(config.prefix + 'cockrater')) {
 		const crkrtr = require("./Jazon_Files/3switch");
 		msg.channel.send(crkrtr.cockrater(msg.content.slice(config.prefix.length + 'cockrater'.length + 1)));
+	}
+	if (msg.content === config.prefix + 'getStand') {
+		let standFunctions = require('./Command_Files/Stand Files/stands');
+		msg.channel.send(standFunctions.getStand(msg.author));
 	}
 });
 
