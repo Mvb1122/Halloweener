@@ -130,7 +130,7 @@ client.on('message', msg => {
 		msg.channel.send(crkrtr.cockrater(msg.content.slice(config.prefix.length + 'cockrater'.length + 1)));
 	}
 	if (msg.content === config.prefix + 'getStand') {
-		let standFunctions = require('./Command_Files/Stand Files/stands');
+		let standFunctions = require('./Command_Files/Stand_Files/stands');
 		msg.channel.send(standFunctions.getStand(msg.author));
 	}
 });
