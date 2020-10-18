@@ -24,7 +24,8 @@
   },
   "nodemonConfig": {
     "ignore": [
-      "counter.json"
+      "counter.json",
+      "Command_Files/Stand_Files/users/*.json"
     ]
   },
   "repository": {

@@ -129,10 +129,6 @@ client.on('message', msg => {
 		const crkrtr = require("./Jazon_Files/3switch");
 		msg.channel.send(crkrtr.cockrater(msg.content.slice(config.prefix.length + 'cockrater'.length + 1)));
 	}
-	if (msg.content === config.prefix + 'getStand') {
-		let standFunctions = require('./Command_Files/Stand_Files/stands');
-		msg.channel.send(standFunctions.getStand(msg.author));
-	}
 });
 
 // This is the music stuff.
@@ -207,7 +203,12 @@ client.on('message', async message => {
 	}
 	if (message.content === config.prefix + "crusade") {
 		let randomNumber = Math.floor(Math.random() * 590)
-		message.channel.send("It is time for the crusade, my brother. We must go. " + await crusaderjs.crusader(), { files: ["./Command_Files/crusadermemes/" + randomNumber + ".png"] });
+		message.channel.send(`It is time for the crusade, my brother. We must go. ${await crusaderjs.crusader()}`, { files: [`./Command_Files/crusadermemes/${randomNumber}.png`] });
+	}
+	if (message.content === config.prefix + 'getStand') {
+		let standFunctions = require('./Command_Files/Stand_Files/stands');
+		message.channel.send(`${standFunctions.getStand(message.author)}`)
+		
 	}
 }
 )
