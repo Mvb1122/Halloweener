@@ -207,8 +207,12 @@ client.on('message', async message => {
 	}
 	if (message.content === config.prefix + 'getStand') {
 		let standFunctions = require('./Command_Files/Stand_Files/stands');
-		message.channel.send(`${standFunctions.getStand(message.author)}`)
+		message.channel.send(`${await standFunctions.getStand(message.author)}`)
 		
+	}
+	if (message.content === `${config.prefix}readStand`) {
+		let standFunctions = require('./Command_Files/Stand_Files/stands');
+		message.channel.send(`${await standFunctions.readStand(message.author)}`)
 	}
 }
 )
