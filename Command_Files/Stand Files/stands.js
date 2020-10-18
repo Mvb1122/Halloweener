@@ -1,24 +1,29 @@
 const config = require('../../config.json');
 const Discord = require('discord.js');
 const { Console } = require('winston/lib/winston/transports');
-const standArray = require('./standArray.json');
 
 exports.getStand = (userName) => {
-    let standArray = require('./standArray.json');
     const fs = require('fs')
-    let standList = ['The World', 'Star Platinum', 'Silver Chariot', 'The World Over Heaven', 'Golden Experince Requiem', 'King Crimson', 'Golden Experince', 'Sticky Fingers'];
+    let standList = require('./standlist.json')
     let randNum = Math.floor(Math.random() * (standList.length - 1));
-    standArrayPush = standArray.push([`'${userName}, '${randNum}'`]);
-    for (let i = 0; i < standArray.length; i++) {
-        if (standArray[i][1] === userName) {
-            let stand = standArray[i][2]
-            return `You can't get another stand, you already have ${standList[stand]}.`
-            break;
-        }
+    let userNameSlice = `${userName}`.slice(1,-1)
+    if (fs.existsSync(`./Command_Files/Stand_Files/users/${userNameSlice}.txt`)) {
+        fs.writeFile(`./Command_Files/Stand_Files/users/${userNameSlice}.json`, randNum, (err) => {})
+        return `Congrats, your stand is ${standList[randNum]}`
+    } else if (this.invert(fs.existsSync(`./Command_Files/Stand_Files/users/${userNameSlice}.txt`))) {
+        let standNumber = `./Command_Files/Stand_Files/users/${userNameSlice}.txt`
+        return `You can't get another stand, you already have ${standList[standNumber]}`;
+    } else {
+        return `||uh oh I did a lil f*cky w*cky.||`
+        // Write all of your error messages like this. Do it.
     }
-    fs.writeFile('./Stand Files/standArray.json', (standArray + standArrayPush), (err) => {
-        if (err) throw err;
-        console.log('Stand Array Updated.');
-    });
-    return `Congrats, your stand is ${standList[randNum]}`
+
+}
+
+exports.invert = (input) => {
+    if (input) {
+        return false
+    } else {
+        return true
+    }
 }
