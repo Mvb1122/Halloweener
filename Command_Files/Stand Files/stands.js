@@ -7,10 +7,10 @@ exports.getStand = (userName) => {
     let standList = require('./standlist.json')
     let randNum = Math.floor(Math.random() * (standList.length - 1));
     let userNameSlice = `${userName}`.slice(1,-1)
-    if (fs.existsSync(`./Command_Files/Stand_Files/users/${userNameSlice}.txt`)) {
+    if (fs.exists(`./Command_Files/Stand_Files/users/${userNameSlice}.txt`)) {
         fs.writeFile(`./Command_Files/Stand_Files/users/${userNameSlice}.json`, randNum, (err) => {})
         return `Congrats, your stand is ${standList[randNum]}`
-    } else if (this.invert(fs.existsSync(`./Command_Files/Stand_Files/users/${userNameSlice}.txt`))) {
+    } else if (this.invert(fs.exists(`./Command_Files/Stand_Files/users/${userNameSlice}.txt`))) {
         let standNumber = `./Command_Files/Stand_Files/users/${userNameSlice}.txt`
         return `You can't get another stand, you already have ${standList[standNumber]}`;
     } else {
