@@ -8,11 +8,11 @@ exports.getStand = (userName) => {
     let randNum = Math.floor(Math.random() * (standList.length - 1));
     let userNameSlice = `${userName}`.slice(1,-1)
     if (fs.existsSync(`./Command_Files/Stand_Files/users/${userNameSlice}.txt`)) {
+        let standNumber = `./Command_Files/Stand_Files/users/${userNameSlice}.txt`
+        return `You can't get another stand, you already have ${standList[standNumber]}`; 
+    } else if (fs.existsSync(`./Command_Files/Stand_Files/users/${userNameSlice}.txt`)) {
         fs.writeFile(`./Command_Files/Stand_Files/users/${userNameSlice}.json`, randNum, (err) => {if (err) {throw err}})
         return `Congrats, your stand is ${standList[randNum]}`
-    } else if (fs.existsSync(`./Command_Files/Stand_Files/users/${userNameSlice}.txt`)) {
-        let standNumber = `./Command_Files/Stand_Files/users/${userNameSlice}.txt`
-        return `You can't get another stand, you already have ${standList[standNumber]}`;
     } else {
         return `||uh oh I did a lil f*cky w*cky.||`
         // Write all of your error messages like this. Do it.
