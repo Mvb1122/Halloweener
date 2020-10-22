@@ -66,8 +66,14 @@ client.on('message', msg => {
 	if (msg.content == config.prefix + "status-online") {
 		// All this does is make the bot look nice and dead.
 	   console.log("Change Status to norm Logged.")
-	   client.user.setActivity("h!help", {
-		   type: "dnd",
+	   client.user.setActivity("h!help"); 
+	   msg.channel.send("Status Changed.")
+	}
+	if (msg.content == `${config.prefix}status-streaming`) {
+		// All this does is make the bot look nice and dead.
+	   console.log("Change Status to norm Logged.")
+	   client.user.setActivity(`${config.twitchMessage} h!help`, {
+		   type: "STREAMING",
 		   url: config.twitchurl
 		 });
 	   msg.channel.send("Status Changed.")
@@ -111,15 +117,6 @@ client.on('message', msg => {
 	if (msg.content == "!knock") {
 		msg.channel.send("<@!462643693980221441> I'm at your door, let me in or you die.");
 	} //                          ^ This is greg's id, please don't annoy him.
-	// h!status-offline
-	if (msg.content == config.prefix + "status-offline") {
-		// All this does is make the bot look nice and dead.
-		// Bots can't go invis, they only have online, streaming, dnd and idle.
-		// (Or off)
-			console.log("Change Status to Offline Logged.")
-			client.user.setActivity("h!help")
-			msg.channel.send("Status Changed.")
-	}
 	// Now begins the Jazon Commands.
 	if (msg.content.startsWith(config.prefix + "glizzy")) {
 		msg.channel.send(glizzy.gladiator(msg.content.slice(9)));

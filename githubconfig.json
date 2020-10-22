@@ -1,7 +1,8 @@
 {
 	"prefix": "h!",
     "token": "HAH YOU WERE EXPECTING A TOKEN, BUT IT WAS ME, DIO",
-    "twitchurl": "https://twitch.tv/DylamLIVE",
+    "twitchurl": "https://twitch.tv/meowfflecat",
+    "twitchMessage": "This is what you put for the bot to show after h!status-streaming is run.",
     "Nmin": "000001",
     "Nmax": "999999",
     "CPmin": "1",
