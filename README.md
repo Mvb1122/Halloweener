@@ -16,6 +16,7 @@ Also don't edit the code unless I told you to thanks -Mvb1122
  - Kitchen Without Gun - Joins your VC and plays Kitchen Without Gun
     - Uses: https://www.youtube.com/watch?v=O31csGCdCDI&list=RDO31csGCdCDI&start_radio=1
 - stop - Leaves your VC.
+- getStand - Assigns you a random stand.
 
 # Plans
 - Jojo stand related commands. It would have to randomly grant a stand, then note it in a file and refer to that when the user asks to use it.
