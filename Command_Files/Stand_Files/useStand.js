@@ -2,7 +2,7 @@ const config = require('../../config.json');
 const Discord = require('discord.js');
 const { Console } = require('winston/lib/winston/transports');
 
-exports.useStandFunction = (userName) => {
+exports.useStandFunction = (userName, channelID) => {
     const fs = require('fs')
     let userNameSlice = `${userName}`.slice(1,-1)
     let path = `./Command_Files/Stand_Files/users/${userNameSlice}.json`

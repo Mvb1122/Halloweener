@@ -209,7 +209,7 @@ client.on('message', async message => {
 	if (message.content === `${config.prefix}useStand`) {
 		let standUsage = require('./Command_Files/Stand_Files/useStand');
 		// let standFunctions = require('./Command_Files/Stand_Files/stands');
-		message.channel.send(`${standUsage.useStandFunction(message.author)}`);
+		message.channel.send(`${standUsage.useStandFunction(message.author, message.channel)}`);
 	}
 	/*
 	if (message.content === `${config.prefix}readStand`) {
