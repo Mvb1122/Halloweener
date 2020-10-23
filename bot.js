@@ -205,14 +205,19 @@ client.on('message', async message => {
 	if (message.content === config.prefix + 'getStand') {
 		let standFunctions = require('./Command_Files/Stand_Files/stands');
 		message.channel.send(`${await standFunctions.getStand(message.author)}`)
-		
 	}
+	if (message.content === `${config.prefix}useStand`) {
+		let standUsage = require('./Command_Files/Stand_Files/useStand');
+		// let standFunctions = require('./Command_Files/Stand_Files/stands');
+		message.channel.send(`${standUsage.useStandFunction(message.author)}`);
+	}
+	/*
 	if (message.content === `${config.prefix}readStand`) {
 		let standFunctions = require('./Command_Files/Stand_Files/stands');
-		message.channel.send(`${await standFunctions.readStand(message.author)}`)
+		let standFunctionOutput = standFunctions.readStand(message.author);
+		message.channel.send(`ouch ${standFunctionOutput}`)
 	}
-	
-}
-)
+	*/
+});
 // this wee bit logs the bot in
 client.login(config.token);
