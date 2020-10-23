@@ -7,11 +7,18 @@ exports.getStand = async (userName) => {
     let standList = require('./standlist.json')
     let randNum = Math.floor(Math.random() * (standList.length - 1));
     let userNameSlice = `${userName}`.slice(1,-1)
-    let standTxt = require(`./users/${userNameSlice}.json`);
     let path = `./Command_Files/Stand_Files/users/${userNameSlice}.json`
-    let fileExists = fs.existsSync(path)
-    console.log(`${userName} just requested stand command. The status is ${fileExists}, which is ${standList[standTxt]}. The path is ${path}`)
+    let fileExists = fs.existsSync(path);
+    if (config["Log_Stand_Usage?"]) {
+        if (fileExists) {
+            let standTxt = require(`./users/${userNameSlice}.json`);
+            console.log(`${userName} just requested stand command. The status is ${fileExists}, which is ${standList[standTxt]}. The path is ${path}`)    
+        } else {
+            console.log(`${userName} just requested stand command. The status is false, which doesn't mean anything. The path is ${path}`)    
+        }
+    }
     if (fileExists) {
+        let standTxt = require(`./users/${userNameSlice}.json`);
         return `You can't get another stand, you already have ${standList[standTxt]}`; 
     } else if (false === fileExists ) {
         fs.writeFile(`./Command_Files/Stand_Files/users/${userNameSlice}.json`, randNum, (err) => {if (err) {throw err}})
