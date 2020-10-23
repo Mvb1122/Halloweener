@@ -7,22 +7,18 @@ exports.getStand = async (userName) => {
     let standList = require('./standlist.json')
     let randNum = Math.floor(Math.random() * (standList.length - 1));
     let userNameSlice = `${userName}`.slice(1,-1)
-    console.log(userNameSlice)
-    let fileExists = fs.existsSync(`./Command_Files/Stand_Files/users/${userNameSlice}.txt`)
+    let standTxt = require(`./users/${userNameSlice}.json`);
+    let path = `./Command_Files/Stand_Files/users/${userNameSlice}.json`
+    let fileExists = fs.existsSync(path)
+    console.log(`${userName} just requested stand command. The status is ${fileExists}, which is ${standList[standTxt]}. The path is ${path}`)
     if (fileExists) {
-        console.log(`The file exists for ${userNameSlice}`)
-        fs.readFile(`./Command_Files/Stand_Files/users/${userNameSlice}.txt`, 'utf8', function(err, data){
-            return `You can't get another stand, you already have ${standList[data]}`; 
-        })
-    } else {
+        return `You can't get another stand, you already have ${standList[standTxt]}`; 
+    } else if (false === fileExists ) {
         fs.writeFile(`./Command_Files/Stand_Files/users/${userNameSlice}.json`, randNum, (err) => {if (err) {throw err}})
-        console.log(`The file doesn't exist for ${userNameSlice}`)
         return `Congrats, your stand is ${standList[randNum]}`
         // return `||uh oh I did a lil f*cky w*cky.||`
         // Write all of your error messages like this. Do it.
-        
     }
-
 };
 
 exports.readStand = async (userName) => {
@@ -31,8 +27,9 @@ exports.readStand = async (userName) => {
     let userNameSlice = `${userName}`.slice(1,-1)
     let fileExists = fs.existsSync(`./Command_Files/Stand_Files/users/${userNameSlice}.txt`)
     console.log(fileExists)
+    console.log(userNameSlice)
     if (fileExists) {
-        return standList[`./Command_Files/Stand_Files/users/${userNameSlice}.json`]
+        return standList[`./Command_Files/Stand_Files/users/${userNameSlice}.txt`]
     } else {
         return `File doesn't exist.`
     }

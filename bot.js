@@ -211,6 +211,7 @@ client.on('message', async message => {
 		let standFunctions = require('./Command_Files/Stand_Files/stands');
 		message.channel.send(`${await standFunctions.readStand(message.author)}`)
 	}
+	
 }
 )
 // this wee bit logs the bot in
