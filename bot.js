@@ -211,6 +211,10 @@ client.on('message', async message => {
 		// let standFunctions = require('./Command_Files/Stand_Files/stands');
 		message.channel.send(`${standUsage.useStandFunction(message.author, message.channel)}`);
 	}
+	// just needed this for a QOL thing.
+	if (message.content.startsWith("https://www.twitch.tv/ckthepenguin")) {
+		message.channel.send("His youtube is https://www.youtube.com/channel/UCA4-3jnId8mlk_yhbJiGBoA btw if you didn't know.")
+	}
 	/*
 	if (message.content === `${config.prefix}readStand`) {
 		let standFunctions = require('./Command_Files/Stand_Files/stands');
