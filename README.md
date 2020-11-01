@@ -34,4 +34,4 @@ Also don't edit the code unless I told you to thanks -Mvb1122
    - Silver Chariot can delete any one message from the minute when the command was sent. (idk what it'd do replace this if you want.)
    - GE turns slow mode on for the channel for 5 or so seconds.)
    - Sticky Fingers pins the next message the user sends.
-   - Green Day would let only 10 more messages be sent in the channel before the use would be limited. 
+   - Green Day would let only 10 more messages be sent in the channel before it would be locked down or something. 
