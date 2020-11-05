@@ -40,8 +40,15 @@ client.on("message", (message) => {
  //                                    ^ how wide the phrase to look for is
 	const command = args.shift().toLowerCase();
 	message.channel.send("Hello " + message.content.slice(4) + " I'm dad.")
-
  //                       ^ reply to message with whole message, append "I'm dad"
+	if (!message.content.startsWith("I’m") || message.author.bot) return;
+	// This part                         ^ tells us what to look for, and excludes messages from other bots.
+	// then the bot takes everything else, and puts it in a msg
+		const args = message.content.slice(3).trim().split(' ');
+	//                                    ^ how wide the phrase to look for is
+		const command = args.shift().toLowerCase();
+		message.channel.send("Hello " + message.content.slice(4) + " I'm dad.")
+	
 });
 
 // ---------------------------------------------------- Commands from here on will have the prefix and other stuff soft-coded in ---------------------------------
