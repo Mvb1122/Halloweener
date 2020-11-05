@@ -3,7 +3,7 @@ Halloween bot 2020 (And maybe later on, idk)
 
 Also don't edit the code unless I told you to thanks -Mvb1122
 # Commands
-(all use prefix defined in config.json, unless defined against)
+(all use prefix defined in config.json, unless noted)
 - randomN - Sends a random Nhentai.
   - sometimes it won't work because there's no official number of dojin on the site, so it'll choose like 999999 and not get anything to send back.
 - randomCP - Sends back a random Creepy Pasta video.
@@ -14,9 +14,10 @@ Also don't edit the code unless I told you to thanks -Mvb1122
 - spm - Joins your Voice Channel and plays spooky music.
   - Uses: https://www.youtube.com/watch?v=-EZ517Ls_FE
  - Kitchen Without Gun - Joins your VC and plays Kitchen Without Gun
-    - Uses: https://www.youtube.com/watch?v=O31csGCdCDI&list=RDO31csGCdCDI&start_radio=1
+   - Uses: https://www.youtube.com/watch?v=O31csGCdCDI&list=RDO31csGCdCDI&start_radio=1
 - stop - Leaves your VC.
 - getStand - Assigns you a random stand.
+- useStand - WIP - In the future will use the move that the stand is known for.
 
 # Plans
 - Jojo stand related commands. It would have to randomly grant a stand, then note it in a file and refer to that when the user asks to use it.
@@ -33,3 +34,4 @@ Also don't edit the code unless I told you to thanks -Mvb1122
    - Silver Chariot can delete any one message from the minute when the command was sent. (idk what it'd do replace this if you want.)
    - GE turns slow mode on for the channel for 5 or so seconds.)
    - Sticky Fingers pins the next message the user sends.
+   - Green Day would let only 10 more messages be sent in the channel before it would be locked down or something. 
