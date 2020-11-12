@@ -203,16 +203,17 @@ client.on('message', async message => {
 		let standFunctions = require('./Command_Files/Stand_Files/stands');
 		message.channel.send(`${await standFunctions.getStand(message.author)}`)
 	}
-	if (message.content === `${config.prefix}useStand`) {
+	if (message.content.startsWith(`${config.prefix}useStand`)) {
 		let standUsage = require('./Command_Files/Stand_Files/useStand');
 		// let standFunctions = require('./Command_Files/Stand_Files/stands');
-		message.channel.send(`${standUsage.useStandFunction(message.author, message.channel)}`);
+		message.channel.send(`${standUsage.useStandFunction(message.author, message.channel, message.content)}`);
 	}
 	// just needed this for a QOL thing.
 	if (message.content.startsWith("https://www.twitch.tv/ckthepenguin")) {
 		message.channel.send("His youtube is https://www.youtube.com/channel/UCA4-3jnId8mlk_yhbJiGBoA btw if you didn't know.")
 	}
 	/*
+	// This reads the user's stand and sends it back.
 	if (message.content === `${config.prefix}readStand`) {
 		let standFunctions = require('./Command_Files/Stand_Files/stands');
 		let standFunctionOutput = standFunctions.readStand(message.author);
