@@ -220,7 +220,7 @@ client.on('message', async message => {
 		message.channel.send(`ouch ${standFunctionOutput}`)
 	}
 	*/
-	if (message.content === "oh") {
+	if (message.content.startsWith('oh')) {
 		let randomNumber = Math.floor(Math.random() * 590)
 		message.channel.send(` `, { files: [`./Command_Files/crusadermemes/${randomNumber}.png`] });
 	}
