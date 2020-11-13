@@ -17,11 +17,11 @@ exports.useStandFunction = (userName, channelID, messageContent) => {
         console.log(`The message channel is ${channelID}, the userID is ${userNameSlice}`);
         switch (standTxt) {
             case 0:
-                return 'The World';
+                return `The World isn't implemented yet. Go bug the Dev about it.`;
             case 1:
-                return 'Star Platinum';
+                return `Star Platinum isn't implemented yet. Go bug the Dev about it.`;
             case 2:
-                return 'Silver Chariot';
+                return `Silver Chariot isn't implemented yet. Go bug the Dev about it.`;
             case 3:
                 let userInput = `${messageContent}`.slice(config.prefix.length + 9)
                 console.log(`The User Input is ${userInput}`)
@@ -43,10 +43,11 @@ exports.useStandFunction = (userName, channelID, messageContent) => {
                         }
                    }
                 });
-                client.login(config.token);
+                clientTWOH.login(config.token);
+                clientTWOH.destroy()
                 return 'Wait for a sec, sometimes the shard I use to delete messages can take forever to start.';
             case 4:
-                return 'GER';
+                return `GER isn't implemented yet. Go bug the Dev about it.`;
             case 5:
                 let clientKC = new Discord.Client();
                 let channelIDSliceKC = (`${channelID}`.slice(2, -1))
@@ -57,11 +58,12 @@ exports.useStandFunction = (userName, channelID, messageContent) => {
                     channel.send(`MY KING CRIMSON WILL REIGN ATOP FOREVER!`, { files: ['./Command_Files/Stand_Files/TimeSkips.mp3'] })
                 });
                 clientKC.login(config.token);
+                clientKC.destroy()
                 return 'Please wait, this can take a second.';
             case 6:
-                return 'Golden Experience';
+                return `Golden Experience isn't implemented yet. Go bug the Dev about it.`;
             case 7:
-                return 'Sticky Fingers';
+                return `Sticky Fingers isn't implemented yet. Go bug the Dev about it.`;
             default:
                 return 'error';
         }
