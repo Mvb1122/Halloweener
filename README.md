@@ -33,6 +33,6 @@ Also don't edit the code unless I told you to thanks -Mvb1122
    - Six Bullets. Idk what it'd do but it belongs here.
    - King Crimson can erase 5 messages, and the people who are in the channel have to chat for 1 second as if it didn't happen, then they can react.
    - Silver Chariot can delete any one message from the minute when the command was sent. (idk what it'd do replace this if you want.)
-   - GE turns slow mode on for the channel for 5 or so seconds.)
+   - GE turns slow mode on for the channel for 5 or so seconds.
    - Sticky Fingers pins the next message the user sends.
    - Green Day would let only 10 more messages be sent in the channel before it would be locked down or something. 
