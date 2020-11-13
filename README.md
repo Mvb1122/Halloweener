@@ -18,6 +18,8 @@ Also don't edit the code unless I told you to thanks -Mvb1122
 - stop - Leaves your VC.
 - getStand - Assigns you a random stand.
 - useStand - WIP - In the future will use the move that the stand is known for.
+  - Currently Implemented Stands:
+  - TWOH (Only up to 100 messages, obviously.)
 
 # Plans
 - Jojo stand related commands. It would have to randomly grant a stand, then note it in a file and refer to that when the user asks to use it.
@@ -26,7 +28,6 @@ Also don't edit the code unless I told you to thanks -Mvb1122
  - Comment your own ideas here:
   
    - The World stops time for 9 seconds, letting only the user send messages in the channel.
-   - TWOH lets them erase any ammount of messages they want (basically purge a channel if they desire).
    - SP can do the same as TW, but can freeze time for 10 seconds.
    - Six Bullets. Idk what it'd do but it belongs here.
    - GER can speak during timestops and erase 7 messages from the initial command (Would delete the user's message and resend it as the bot's).
