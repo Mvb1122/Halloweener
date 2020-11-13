@@ -1,5 +1,6 @@
 # Halloweener
 Halloween bot 2020 (And maybe later on, idk)
+- Bot is metamophising into a Jojo Bot.
 
 Also don't edit the code unless I told you to thanks -Mvb1122
 # Commands
