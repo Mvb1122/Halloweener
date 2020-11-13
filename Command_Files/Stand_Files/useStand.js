@@ -1,7 +1,9 @@
 const config = require('../../config.json');
 const Discord = require('discord.js');
 const { Console } = require('winston/lib/winston/transports');
-const client = new Discord.Client();
+const { count } = require('console');
+const { TIMEOUT } = require('dns');
+
 
 exports.useStandFunction = (userName, channelID, messageContent) => {
     const fs = require('fs')
@@ -24,17 +26,25 @@ exports.useStandFunction = (userName, channelID, messageContent) => {
                 let userInput = `${messageContent}`.slice(config.prefix.length + 9)
                 console.log(`The User Input is ${userInput}`)
                 let channelIDSlice = (`${channelID}`.slice(2, -1))
-                console.log(`Channel ID is ${channelIDSlice} or ${channelID}`)
-                channel = client.channels.cache.get(channelIDSlice);
-                /*
-                if (userInput) {
-                    for (let deletedMessages = 0; deletedMessages < userInput; deletedMessages += 1) {
-                        channel.send(`Pretend I deleted a message`)
-                        // console.log(`Deleted a Message!`)
-                    }
-                }
-                */
-                return 'TWOH';
+                console.log(`Channel ID is ${channelIDSlice} or ${channelID}`);
+                // Mini-Bot !!! *spaghetti code intensifies*
+                const client = new Discord.Client();
+                client.once('ready', () => {
+                   console.log("Mini-bot logged in.") 
+                   channel = client.channels.cache.get(`${channelIDSlice}`);
+                   if (userInput) {
+                        if (userInput > 1) {
+                            channel.bulkDelete(userInput);
+                            channel.send(`THE WORLD, OVER HEAVEN! DELETE ${userInput} MESSAGES`, { files: ['./Command_Files/Stand_Files/TimeStops.mp3'] })
+                        } else if (userInput === 1) {
+                            channel.bulkDelete(userInput + 1);
+                            channel.send(`THE WORLD, OVER HEAVEN! DELETE THAT ||SHIT||!`, { files: ['./Command_Files/Stand_Files/TimeStops.mp3'] })
+                            
+                        }
+                   }
+                });
+                client.login(config.token);
+                return 'Wait for a sec, sometimes the shard I use to delete messages can take forever to start.';
             case 4:
                 return 'GER';
             case 5:
