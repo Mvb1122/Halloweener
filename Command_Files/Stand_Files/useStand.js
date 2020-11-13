@@ -44,7 +44,6 @@ exports.useStandFunction = (userName, channelID, messageContent) => {
                    }
                 });
                 clientTWOH.login(config.token);
-                clientTWOH.destroy()
                 return 'Wait for a sec, sometimes the shard I use to delete messages can take forever to start.';
             case 4:
                 return `GER isn't implemented yet. Go bug the Dev about it.`;
@@ -58,7 +57,6 @@ exports.useStandFunction = (userName, channelID, messageContent) => {
                     channel.send(`MY KING CRIMSON WILL REIGN ATOP FOREVER!`, { files: ['./Command_Files/Stand_Files/TimeSkips.mp3'] })
                 });
                 clientKC.login(config.token);
-                clientKC.destroy()
                 return 'Please wait, this can take a second.';
             case 6:
                 return `Golden Experience isn't implemented yet. Go bug the Dev about it.`;
