@@ -28,10 +28,10 @@ exports.useStandFunction = (userName, channelID, messageContent) => {
                 let channelIDSlice = (`${channelID}`.slice(2, -1))
                 console.log(`Channel ID is ${channelIDSlice} or ${channelID}`);
                 // Mini-Bot !!! *spaghetti code intensifies*
-                const client = new Discord.Client();
-                client.once('ready', () => {
+                let clientTWOH = new Discord.Client();
+                clientTWOH.once('ready', () => {
                    console.log("Mini-bot logged in.") 
-                   channel = client.channels.cache.get(`${channelIDSlice}`);
+                   channel = clientTWOH.channels.cache.get(`${channelIDSlice}`);
                    if (userInput) {
                         if (userInput > 1) {
                             channel.bulkDelete(userInput);
@@ -48,7 +48,16 @@ exports.useStandFunction = (userName, channelID, messageContent) => {
             case 4:
                 return 'GER';
             case 5:
-                return 'King Crimson';
+                let clientKC = new Discord.Client();
+                let channelIDSliceKC = (`${channelID}`.slice(2, -1))
+                clientKC.once('ready', () => {
+                    console.log("Mini-bot logged in.") 
+                    channel = clientKC.channels.cache.get(`${channelIDSliceKC}`);
+                    channel.bulkDelete(6);
+                    channel.send(`MY KING CRIMSON WILL REIGN ATOP FOREVER!`, { files: ['./Command_Files/Stand_Files/TimeSkips.mp3'] })
+                });
+                clientKC.login(config.token);
+                return 'Please wait, this can take a second.';
             case 6:
                 return 'Golden Experience';
             case 7:
