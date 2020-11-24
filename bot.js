@@ -30,7 +30,7 @@ client.once('ready', () => {
 	channel.send(`Bot updated. This has happened ${counter} times since I started tracking.`);
 	client.user.setActivity("h!help"); 
 });
-
+/*
 // Since this one's a bit more complicated, I'll tell you what it does. (Rip off the dad bot)
 client.on("message", (message) => {
 	if ((message.content.startsWith("I'm") || message.content.startsWith("I’m")) && !message.author.bot) {
@@ -40,7 +40,7 @@ client.on("message", (message) => {
 	}
  //                       ^ reply to message with whole message, append "I'm dad"
 });
-
+*/
 // ---------------------------------------------------- Commands from here on will have the prefix and other stuff soft-coded in ---------------------------------
 // What I mean by this is that it will use the config.json file in the thing for the stuff.
 
@@ -51,8 +51,8 @@ client.on('message', msg => {
 			color: 000000,
 			title: ("Commands:"),
 			fields: [
-			  { name: "Input", value: "randomN\nDad bot rip-off\n8ball\nrps\n\nspm", inline: true},
-			  { name: "Result", value: "Sends a random Nhentai\nread the title\nreads what you sent, predicts what will happen.\nPlay Rock Paper Scissors. send " + config.prefix + "rps and then 'rock,' 'paper,' or 'scissors' to play.\nplays spooky music in your voice channel. Use " + config.prefix + "stop to stop it.", inline: true}
+			  { name: "Input", value: "randomN\nDad bot rip-off\n8ball\nrps\n\nspm\ncrusade", inline: true},
+			  { name: "Result", value: "Sends a random Nhentai\nread the title\nreads what you sent, predicts what will happen.\nPlay Rock Paper Scissors. send " + config.prefix + "rps and then 'rock,' 'paper,' or 'scissors' to play.\nplays spooky music in your voice channel. Use " + config.prefix + "stop to stop it.\nSends a random Crusader meme.", inline: true}
 			]}			
 		})
 		msg.channel.send("Check your dms.")
