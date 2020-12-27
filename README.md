@@ -30,7 +30,7 @@ Also don't edit the code unless I told you to thanks -Mvb1122
  - Comment your own ideas here:
   
    - The World stops time for 9 seconds, letting only the user send messages in the channel.
-   - SP can do the same as TW, but can freeze time for 10 seconds.
+   - SP can do the same as TW, but can freeze time for 10 seconds. (Or 8 depending on who cares.)
    - GER can speak during timestops and erase 7 messages from the initial command (Would delete the user's message and resend it as the bot's).
    - Six Bullets. Idk what it'd do but it belongs here.
    - Silver Chariot can delete any one message from the minute when the command was sent. (idk what it'd do replace this if you want.)
