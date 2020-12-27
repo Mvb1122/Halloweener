@@ -1,5 +1,6 @@
 # Halloweener
 Halloween bot 2020 (And maybe later on, idk)
+- Bot is metamophising into a Jojo Bot.
 
 Also don't edit the code unless I told you to thanks -Mvb1122
 # Commands
@@ -18,6 +19,9 @@ Also don't edit the code unless I told you to thanks -Mvb1122
 - stop - Leaves your VC.
 - getStand - Assigns you a random stand.
 - useStand - WIP - In the future will use the move that the stand is known for.
+  - Currently Implemented Stands:
+  - TWOH (Only up to 100 messages, obviously.)
+  - King Crimson (Deletes 6 messages. That includes the 'wait' message.)
 
 # Plans
 - Jojo stand related commands. It would have to randomly grant a stand, then note it in a file and refer to that when the user asks to use it.
@@ -26,12 +30,10 @@ Also don't edit the code unless I told you to thanks -Mvb1122
  - Comment your own ideas here:
   
    - The World stops time for 9 seconds, letting only the user send messages in the channel.
-   - TWOH lets them erase any ammount of messages they want (basically purge a channel if they desire).
-   - SP can do the same as TW, but can freeze time for 10 seconds.
-   - Six Bullets. Idk what it'd do but it belongs here.
+   - SP can do the same as TW, but can freeze time for 10 seconds. (Or 8 depending on who cares.)
    - GER can speak during timestops and erase 7 messages from the initial command (Would delete the user's message and resend it as the bot's).
-   - King Crimson can erase 5 messages, and the people who are in the channel have to chat for 1 second as if it didn't happen, then they can react.
+   - Six Bullets. Idk what it'd do but it belongs here.
    - Silver Chariot can delete any one message from the minute when the command was sent. (idk what it'd do replace this if you want.)
-   - GE turns slow mode on for the channel for 5 or so seconds.)
+   - GE turns slow mode on for the channel for 5 or so seconds.
    - Sticky Fingers pins the next message the user sends.
    - Green Day would let only 10 more messages be sent in the channel before it would be locked down or something. 
