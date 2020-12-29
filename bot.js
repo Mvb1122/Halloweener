@@ -11,6 +11,7 @@ const Discord = require('discord.js');
 const fs = require('fs')
 const { OpusEncoder } = require('@discordjs/opus');
 let counter = require('./counter.json');
+const shortenURL = require('./Command_Files/shortenURL')
 // this bit lets me log to the command console.
 const { Console } = require('winston/lib/winston/transports');
 const { count } = require('console');
@@ -223,6 +224,10 @@ client.on('message', async message => {
 	if ((message.content.toLowerCase()).startsWith("oh")) {
 		let randomNumber = Math.floor(Math.random() * 590)
 		message.channel.send("", { files: [`./Command_Files/crusadermemes/${randomNumber}.png`] });
+	}
+	if ((message.content.toLowerCase()).startsWith("h!shortenurl")) {
+		let shortenedURL = await shortenURL.shortenURL(`${message.content}`.slice(config.prefix.length + 11))
+		message.channel.send(shortenedURL + " ")
 	}
 });
 // this wee bit logs the bot in
