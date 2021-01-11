@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "core-util-is": "^1.0.2",
+    "discord-slash-commands-client": "^1.1.1",
     "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
     "discord.js": "^12.4.1",
     "nodemon": "^2.0.6",
