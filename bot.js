@@ -149,6 +149,26 @@ client.on('message', async message => {
 			)
 		}
 	}
+	if (message.content === "Everywhere") {
+		if (message.member.voice.channel) {
+			const connection = await message.member.voice.channel.join();
+			const dispatcher = connection.play('./Command_Files/Everywhere.mp3', { volume: 0.25 });
+			message.channel.send("Sometimes it glitches, so run h!stop if I don't connect.")
+			message.channel.send({embed: {
+				// This is one of those fancy embed things you see all the real bots using.
+				color: 000000,
+				title: ("Now Playing Everywhere at the end of time: Everywhere At the End of Time"),
+				fields: [
+				{
+					name: 'https://youtu.be/wJWksPWDKOc',
+					value: 'Composed by The Caretaker.',
+				},
+				]
+				}
+			}
+			)
+		}
+	}
 	if (message.content === config.prefix + "Kitchen Without Gun") {
 		if (message.member.voice.channel) {
 			const connection = await message.member.voice.channel.join();
