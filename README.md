@@ -24,6 +24,7 @@ Also don't edit the code unless I told you to thanks -Mvb1122
   - King Crimson (Deletes 6 messages. That includes the 'wait' message.)
   - SP (Spams ORA on a seperate line for userInput)
 - shortenURL - Uses Rebrandly's API to shorten links.
+- "Everywhere" - Simply just plays The Cartaker's Everywhere At The End of Time.
 # Plans
 - Jojo stand related commands. It would have to randomly grant a stand, then note it in a file and refer to that when the user asks to use it.
   - Preferablly, would interact with the channel. -- Time stop lets only the user send messages (or people with GER being able to do whatever the heck they want.)
