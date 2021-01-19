@@ -9,6 +9,8 @@ var glizzy = require("./Jazon_Files/Glizzy")
 // this makes the program a discord bot
 const Discord = require('discord.js');
 const fs = require('fs')
+const owoify = require('owoify-js').default
+// owoify makes words to the funky wunky furry thing, important for Discord.
 const { OpusEncoder } = require('@discordjs/opus');
 let counter = require('./counter.json');
 const shortenURL = require('./Command_Files/shortenURL')
@@ -123,6 +125,27 @@ client.on('message', msg => {
 	if (msg.content.startsWith(config.prefix + 'cockrater')) {
 		const crkrtr = require("./Jazon_Files/3switch");
 		msg.channel.send(crkrtr.cockrater(msg.content.slice(config.prefix.length + 'cockrater'.length + 1)));
+	}
+	if (msg.content.startsWith(config.prefix + 'owoify')) {
+		// oh god why did I do this
+		let content = msg.content.slice(config.prefix.length + 'owoify'.length + 1);
+		let contentslice = content.slice(2)
+		let strength = content.charAt(0)
+		console.log(strength)
+		// I was too lazy to remember how switch statements work so don't judge me for it 
+		if (strength === "1") {
+			msg.channel.send(owoify(contentslice));
+			console.log('Case 1');
+		} else if (strength === "2") {
+			msg.channel.send(owoify(contentslice, 'uwu'));
+			console.log('Case 2');
+		} else if (strength === "3") {
+			msg.channel.send(owoify(contentslice, 'uvu'));
+			console.log('Case 3');
+		} else {
+			msg.channel.send(owoify(content));
+			console.log('Case Default')
+		}
 	}
 });
 

@@ -24,6 +24,9 @@ Also don't edit the code unless I told you to thanks -Mvb1122
   - King Crimson (Deletes 6 messages. That includes the 'wait' message.)
   - SP (Spams ORA on a seperate line for userInput)
 - shortenURL - Uses Rebrandly's API to shorten links.
+- owoify - returns your input string but *furry.*
+  - If you put owoify and then a number between 1 and 3 it will adjust the furry-ness of it. If not, it will use level 1.
+  - This is an implementation of mohan-cao's owoify-js.
 # Plans
 - Jojo stand related commands. It would have to randomly grant a stand, then note it in a file and refer to that when the user asks to use it.
   - Preferablly, would interact with the channel. -- Time stop lets only the user send messages (or people with GER being able to do whatever the heck they want.)
