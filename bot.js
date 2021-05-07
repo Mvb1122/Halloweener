@@ -54,8 +54,8 @@ client.on('message', msg => {
 			color: 000000,
 			title: ("Commands:"),
 			fields: [
-			  { name: "Input", value: "randomN\nDad bot rip-off\n8ball\nrps\n\nspm\ncrusade\nowoify", inline: true},
-			  { name: "Result", value: "Sends a random Nhentai\nread the title\nreads what you sent, predicts what will happen.\nPlay Rock Paper Scissors. send " + config.prefix + "rps and then 'rock,' 'paper,' or 'scissors' to play.\nplays spooky music in your voice channel. Use " + config.prefix + "stop to stop it.\nSends a random Crusader meme.\nMakes your message furry.", inline: true}
+			  { name: "Input", value: "randomN\nDad bot rip-off\n8ball\nrps\n\nspm\ncrusade\nowoify\nshortenURL", inline: true},
+			  { name: "Result", value: "Sends a random Nhentai\nread the title\nreads what you sent, predicts what will happen.\nPlay Rock Paper Scissors. send " + config.prefix + "rps and then 'rock,' 'paper,' or 'scissors' to play.\nplays spooky music in your voice channel. Use " + config.prefix + "stop to stop it.\nSends a random Crusader meme.\nMakes your message furry.\nUse as " + config.prefix + "shortenURL XX where XX is your link and it will shorten it.", inline: true}
 			]}			
 		})
 		msg.channel.send("Check your dms.")
