@@ -31,7 +31,7 @@ client.once('ready', () => {
     console.log("Counter Incremented.");
 	channel = client.channels.cache.get(config.updChannel);
 	channel.send(`Bot updated. This has happened ${counter} times since I started tracking.`);
-	client.user.setActivity("h!help"); 
+	client.user.setActivity(`${config.prefix}help`); 
 });
 /*
 // Since this one's a bit more complicated, I'll tell you what it does. (Rip off the dad bot)
