@@ -25,12 +25,12 @@ const client = new Discord.Client();
 // (this will only trigger one time after logging in)
 client.once('ready', () => {
 	console.log('Ready!');
-	// Lines 24-28 send the command for the bot being updated.
+	// The following 5 lines send the message about the bot being updated.
 	counter += 1;
 	fs.writeFile('counter.json', counter, (err) => {})
     console.log("Counter Incremented.");
 	channel = client.channels.cache.get(config.updChannel);
-	channel.send(`Bot updated. This has happened ${counter} times since I started tracking.`);
+	channel.send(`Bot restarted. This has happened ${counter} times since I started tracking.`);
 	client.user.setActivity(`${config.prefix}help`); 
 });
 /*
