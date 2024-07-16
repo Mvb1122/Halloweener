@@ -19,18 +19,26 @@ const { Console } = require('winston/lib/winston/transports');
 const { count } = require('console');
 
 // make the bot know that it's a discord bot.
-const client = new Discord.Client();
+const { GatewayIntentBits } = require('discord.js');
+const client = new Discord.Client({
+	intents: [
+		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.MessageContent
+	  ]
+}
+);
 
 // This code runs on startup
 // (this will only trigger one time after logging in)
 client.once('ready', () => {
 	console.log('Ready!');
 	// The following 5 lines send the message about the bot being updated.
-	counter += 1;
-	fs.writeFile('counter.json', counter, (err) => {})
+	counter.value += 1;
+	fs.writeFile('counter.json', JSON.stringify(counter), (err) => {})
     console.log("Counter Incremented.");
 	channel = client.channels.cache.get(config.updChannel);
-	channel.send(`Bot restarted. This has happened ${counter} times since I started tracking.`);
+	channel.send(`Bot restarted. This has happened ${counter.value} times since I started tracking.`);
 	client.user.setActivity(`${config.prefix}help`); 
 });
 /*
@@ -47,21 +55,25 @@ client.on("message", (message) => {
 // ---------------------------------------------------- Commands from here on will have the prefix and other stuff soft-coded in ---------------------------------
 // What I mean by this is that it will use the config.json file in the thing for the stuff.
 
-client.on('message', msg => {    
+// Create help embed.
+const helpEmbed = new Discord.EmbedBuilder()
+	.setColor(000000)
+	.setTitle("Commands:")
+	.addFields(
+		{ name: "Input", value: "randomN\nDad bot rip-off\n8ball\nrps\n\nspm\ncrusade\nowoify\nshortenURL", inline: true},
+		{ name: "Result", value: "Sends a random Nhentai\nread the title\nreads what you sent, predicts what will happen.\nPlay Rock Paper Scissors. send " + config.prefix + "rps and then 'rock,' 'paper,' or 'scissors' to play.\nplays spooky music in your voice channel. Use " + config.prefix + "stop to stop it.\nSends a random Crusader meme.\nMakes your message furry.\nUse as " + config.prefix + "shortenURL XX where XX is your link and it will shorten it.", inline: true}
+	)
+
+client.on('messageCreate', async (msg) => {
 	if (msg.content === config.prefix + "help") {      
-		msg.channel.type === (`"dm"`) + msg.author.send({embed: {
-			// This is one of those fancy embed things you see all the real bots using.
-			color: 000000,
-			title: ("Commands:"),
-			fields: [
-			  { name: "Input", value: "randomN\nDad bot rip-off\n8ball\nrps\n\nspm\ncrusade\nowoify\nshortenURL", inline: true},
-			  { name: "Result", value: "Sends a random Nhentai\nread the title\nreads what you sent, predicts what will happen.\nPlay Rock Paper Scissors. send " + config.prefix + "rps and then 'rock,' 'paper,' or 'scissors' to play.\nplays spooky music in your voice channel. Use " + config.prefix + "stop to stop it.\nSends a random Crusader meme.\nMakes your message furry.\nUse as " + config.prefix + "shortenURL XX where XX is your link and it will shorten it.", inline: true}
-			]}			
-		})
-		msg.channel.send("Check your dms.")
-	// This is known as chaining your commands to make it more efficient and faster to start.
-	// the bot takes roughly 11 seconds to start, so I have to make preformance 
-	// optimizations.
+		if (msg.channel.type != Discord.ChannelType.DM) {
+			msg.author.send({
+				embeds: [helpEmbed]
+			});
+			return msg.channel.send("Check your dms.");
+		} 
+
+	// Just putting all of these in one big chain for "performance reasons."
 	}
 	if (msg.content == config.prefix + "status-online") {
 		// All this does is make the bot look nice and dead.
@@ -149,17 +161,17 @@ client.on('message', msg => {
 			//console.log('Case Default')
 		}
 	}
-});
 
-// This is the music stuff.
-client.on('message', async message => {
+	let message = msg;
+	// This is the music stuff, yes I did just merge it into the normal commands from an old handler.
+
 	// Join the same voice channel of the author of the message
 	if (message.content === config.prefix + "spm") {
 		if (message.member.voice.channel) {
 			const connection = await message.member.voice.channel.join();
 			const dispatcher = connection.play('./Command_Files/Music.mp3', { volume: 0.5 });
 			message.channel.send("Sometimes it glitches, so run h!stop if I don't connect.")
-			message.channel.send({embed: {
+			message.channel.send({embeds: {
 				// This is one of those fancy embed things you see all the real bots using.
 				color: 000000,
 				title: ("Now Playing some Spooky Music"),
@@ -179,7 +191,7 @@ client.on('message', async message => {
 			const connection = await message.member.voice.channel.join();
 			const dispatcher = connection.play('./Command_Files/Everywhere.mp3', { volume: 0.25 });
 			message.channel.send("Sometimes it glitches, so run h!stop if I don't connect.")
-			message.channel.send({embed: {
+			message.channel.send({embeds: {
 				// This is one of those fancy embed things you see all the real bots using.
 				color: 000000,
 				title: ("Now Playing Everywhere at the end of time: Everywhere At the End of Time"),
@@ -198,7 +210,7 @@ client.on('message', async message => {
 		if (message.member.voice.channel) {
 			const connection = await message.member.voice.channel.join();
 			const dispatcher = connection.play('./Command_Files/m2.mp3', { volume: 0.25 });
-			message.channel.send({embed: {
+			message.channel.send({embeds: {
 				// This is one of those fancy embed things you see all the real bots using.
 				color: 000000,
 				title: ("Whoa kitchen with no gun"),
@@ -226,7 +238,7 @@ client.on('message', async message => {
 			const connection = await message.member.voice.channel.join();
 			const dispatcher = connection.play('./Command_Files/Monster Mash.mp3', { volume: 0.5 });
 			message.channel.send("Sometimes it glitches, so run h!stop if I don't connect.")
-			message.channel.send({embed: {
+			message.channel.send({embeds: {
 				// This is one of those fancy embed things you see all the real bots using.
 				color: 000000,
 				title: ("Now Playing some **very** Spooky Music"),
@@ -271,10 +283,16 @@ client.on('message', async message => {
 		message.channel.send("", { files: [`./Command_Files/crusadermemes/${randomNumber}.png`] });
 	}
 	*/
-	if ((message.content.toLowerCase()).startsWith("h!shortenurl")) {
-		let shortenedURL = await shortenURL.shortenURL(`${message.content}`.slice(config.prefix.length + 11))
+
+	// Lets you shorten urls easily.
+	console.log(message.content);
+	if ((message.content.toLowerCase()).startsWith(config.prefix + "shortenurl")) {
+		let longURL = `${message.content}`.slice(config.prefix.length + "shortenurl".length).trim();
+		console.log(longURL);
+		let shortenedURL = await (shortenURL.shortenURL(longURL));
 		message.channel.send(shortenedURL + " ")
 	}
 });
+
 // this wee bit logs the bot in
 client.login(config.token);

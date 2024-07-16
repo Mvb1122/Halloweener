@@ -12,3 +12,4 @@ Command_Files/shortenURL.js
 Command_Files/Everywhere.mp3
 node_modules/
 /node_modules
+/node_modules/discord-slash-commands-client
